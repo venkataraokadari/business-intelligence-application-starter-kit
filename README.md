@@ -1,10 +1,13 @@
-# Business Intelligence: Business Intelligence
+# Business Intelligence
 
 This application is an **Application Starter Kit** (ASK) that is designed to get you up and running quickly with a common industry pattern, and to provide information about best practices around Watson services. The **Business Intelligence** application was created to highlight the combination of the [AlchemyData News][alchemydata-news], [Alchemy Language][alchemy-language], and [Tone Analyzer][tone-analyzer] services as a [Business Intelligence](#about-the-business-intelligence-pattern) tool. This application can serve as the basis for your own applications that follow that pattern.
 
 Give it a try! Click the button below to fork the repository that contains the source code for this application into IBM DevOps Services, which then deploys your own copy of this application on Bluemix automatically:
 
 [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/watson-developer-cloud/business-intelligence-application-starter-kit)
+
+You can see a version of this app that is already running by clicking
+[here](http://business-intelligence-application-starter-kit.mybluemix.net/).
 
 **IMPORTANT:**
 This application requires an AlchemyAPI key with high transaction limits. The free AlchemyAPI key that you request has a limit of 1000 transactions per day, which is insufficient for significant use of this sample application. See [step 3](#step3) of the [Getting Started](#getting-started) section for information about requesting a higher transaction limit on your sample AlchemyAPI key.
@@ -40,7 +43,7 @@ The following instructions explain how to fork the project on GitHub and push th
   2. Create a Bluemix account. [Sign up][sign_up] in Bluemix or use an existing account. Watson services in beta are free to use, as are GA services in the standard plan below a certain usage threshold.
 
   <a name="step3"></a>
-  3.  Get an [Alchemy API key][get-alchemyapi-key]. The page that displays after you create a key, provides a form that enables you to request a higher transaction limit than the default for free keys, which is 1000 transactions per day.
+  3.  Get an [Alchemy API key][get-alchemyapi-key]. Contact IBM to  request a higher transaction limit than the default for free keys, which is 1000 transactions per day.
 
   4. If it is not already installed on your system, download and install the [Cloud-foundry CLI][cloud_foundry] tool.
 
@@ -150,10 +153,10 @@ Follow the steps in the [previous section](#getting-started) and ensure that you
 
 ## About the Business Intelligence pattern
 
-This sample application demonstrates how to use natural language processing to understand popular sentiment about a topic using AlchemyData News, AlchemyLanguage and Tone Analyzer APIs.
+This sample application demonstrates how to use natural language processing to understand popular sentiment about a topic using the AlchemyData News, AlchemyLanguage, and Tone Analyzer APIs.
 
 The sample application is made up of two major components:
-* NodeJS server - This application acts as a proxy between the web-based dashboard and the Alchemy services
+* Node.js server - This application acts as a proxy between the web-based dashboard and the Alchemy services
 * Web-based dashboard client - This dashboard helps you understand how the public feels about a company.
 
 <img src="doc/pattern.png" style="width:50%;">
@@ -165,11 +168,11 @@ The Node JS application exposes the following endpoints for the dashboard:
 * /api/articles - this endpoint is used to retrieve a list of articles from one of the top sources
 * /api/tone - this endpoint is used to send the content of an article (specified by an url) to the Alchemy Tone Analyzer
 
-When one of these endpoints is called, based on the query parameters provided, the server tranlates the request into appropriate queries for the Alchemy services.  When the server receives a response, it relays the responses back to the web-based dashboard.
+Based on the query parameters provided when one of these endpoints is called, the server translates the request into appropriate queries for the Alchemy services.  When the server receives a response, it relays the responses back to the web-based dashboard.
 
-The application makes use of the AlchemyData News API to get the overall sentiment, top keywords, news sources, and a list of articles related to the company. This API allows us to query for news articles from a diverse list of data sources from the last 60 days.  In this application, the queries are designed to search for articles related to the *company* entity type.  
+The application makes use of the AlchemyData News API to get the overall sentiment, top keywords, news sources, and a list of articles related to the company. This API queries news articles from a diverse list of data sources from the last 60 days.  In this application, the queries are designed to search for articles related to the *company* entity type.
 
-If you are interested in articles related to other entity types, e.g. technology, product, you can modify the application to search for a different entity type.  Modify the *entityQuery* function in `app.js`:
+If you are interested in articles related to other entity types, such as technology or product, you can modify the application to search for a different entity type.  To do this, modify the *entityQuery* function in `app.js`:
 
 ```js
 function entityQuery(entity) {
@@ -179,7 +182,7 @@ function entityQuery(entity) {
 
 For a full list of supported entity types, refer to documentation [here](http://www.alchemyapi.com/api/entity/types).
 
-To get the tone of one of the articles found, the server uses the Alchemy Language and the Tone Analyzer API: from the AlchemyData News API, the server retrieves the URL of an article related to the company; The server then sends this URL to the Alchemy Language Text Extract API to get the text content of the article; finally, it passes the article content to the Tone Anayzer API.
+To get the tone of one of the articles found, the server uses the Alchemy Language and the Tone Analyzer APIs: from the AlchemyData News API, the server retrieves the URL of an article related to the company; The server then sends this URL to the Alchemy Language Text Extraction API to get the text content of the article; finally, it passes the article content to the Tone Analyzer API.
 
 ### When to use this pattern
 
@@ -230,7 +233,7 @@ When troubleshooting your Bluemix app, the most useful source of information is 
 [cloud_foundry]: https://github.com/cloudfoundry/cli
 [sign_up]: https://console.ng.bluemix.net/registration/
 [get-alchemyapi-key]: https://console.ng.bluemix.net/catalog/services/alchemyapi/
-[get-alchemyapi-key]: http://www.alchemyapi.com/api/register.html
+# [get-alchemyapi-key]: http://www.alchemyapi.com/api/register.html
 [tone-analyzer]: http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/tone-analyzer.html
 [alchemydata-news]: http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/alchemy-data-news.html
 [alchemy-language]: http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/alchemy-language.html
