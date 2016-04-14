@@ -34,7 +34,7 @@ var toneAnalyzer = watson.tone_analyzer({
   version_date: '2016-02-11'
 });
 
-var alchemyApiKey = { api_key: process.env.ALCHEMY_API_KEY || '<your api key>'};
+var alchemyApiKey = { api_key: process.env.ALCHEMY_API_KEY || '713a9bfa52ee7175c4a22ccb2cc9eb031a3903cf'};
 var alchemyLanguage = watson.alchemy_language(alchemyApiKey);
 var alchemyDataNews = watson.alchemy_data_news(alchemyApiKey);
 
