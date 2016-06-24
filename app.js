@@ -28,13 +28,13 @@ require('./config/express')(app);
 
 var toneAnalyzer = watson.tone_analyzer({
   isStreaming: false,
-  username: '<username>',
-  password: '<password>',
+  username: 'https://gateway.watsonplatform.net/tone-analyzer/api',
+  password: 'WrPcYNJRJt6Y',
   version: 'v3-beta',
   version_date: '2016-02-11'
 });
 
-var alchemyApiKey = { api_key: process.env.ALCHEMY_API_KEY || '713a9bfa52ee7175c4a22ccb2cc9eb031a3903cf'};
+var alchemyApiKey = { api_key: process.env.ALCHEMY_API_KEY || 'd980faf1c0031ab7d4d4fd8fe55b215156dce6db'};
 var alchemyLanguage = watson.alchemy_language(alchemyApiKey);
 var alchemyDataNews = watson.alchemy_data_news(alchemyApiKey);
 
