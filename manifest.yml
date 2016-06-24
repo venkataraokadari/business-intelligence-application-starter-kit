@@ -3,7 +3,7 @@ declared-services:
     label: tone_analyzer
     plan: beta
 applications:
-- name: vrk-bi
+- name: vrk-wdc-ska-bi
   command: npm start
   path: .
   memory: 512M
