@@ -1,5 +1,5 @@
 declared-services:
-tone-analyzer-service:
+- tone-analyzer-service:
   label: vrk-tone-analyzer-service
   plan: standard
 applications:
