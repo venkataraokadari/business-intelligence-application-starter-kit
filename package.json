@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/watson-developer-cloud/business-intelligence-application-starter-kit.git"
+    "url": "https://github.com/venkataraokadari/vrk-gthub-wdcska-bi.git"
   },
   "engines": {
     "node": ">=0.12.x"
