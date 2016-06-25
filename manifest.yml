@@ -1,10 +1,11 @@
+declared-services:
+tone-analyzer-service:
+  label: vrk-tone-analyzer-service
+  plan: standard
 applications:
 - name: vrk-wdc-ska-bi
-  command: npm start
-  path: .
-  memory: 512M
- services:
-  - vrk-tone-analyzer-service
-  env:
-    NODE_ENV: production
-    SECURE_EXPRESS: 1
+command: npm start
+path: .
+memory: 512M
+services:
+- vrk-tone-analyzer-service
